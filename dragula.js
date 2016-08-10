@@ -367,8 +367,8 @@ function dragula (initialContainers, options) {
     _mirror.style.top = y + 'px';
 
     var item = _copy || _item;
-    var elementBehindCursor = getElementBehindPoint(_mirror, clientX, clientY);
-    var dropTarget = findDropTarget(elementBehindCursor, clientX, clientY);
+    var elementBehindCursor = getElementBehindPoint(_mirror, x, clientY);
+    var dropTarget = findDropTarget(elementBehindCursor, x, clientY);
     var changed = dropTarget !== null && dropTarget !== _lastDropTarget;
     if (changed || dropTarget === null) {
       out();
@@ -385,7 +385,7 @@ function dragula (initialContainers, options) {
     var reference;
     var immediate = getImmediateChild(dropTarget, elementBehindCursor);
     if (immediate !== null) {
-      reference = getReference(dropTarget, immediate, clientX, clientY);
+      reference = getReference(dropTarget, immediate, x, clientY);
     } else if (o.revertOnSpill === true && !_copy) {
       reference = _initialSibling;
       dropTarget = _source;
